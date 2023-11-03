@@ -1,0 +1,89 @@
+###ALL TECHNICIANSKILL
+GET http://localhost:3000/DB/AllTS
+
+###ALL CLIENT
+GET http://localhost:3000/DB/AllClient
+
+###ALL CALLCENTRE
+GET http://localhost:3000/DB/AllCalls
+
+###ALL CLIENTUSER
+GET http://localhost:3000/DB/AllUsers
+
+###ALL CONTRACT
+GET http://localhost:3000/DB/AllContracts
+
+###ALL EMPLOYEE
+GET http://localhost:3000/DB/AllEmployees
+
+###ALL JOB
+GET http://localhost:3000/DB/AllJobs
+
+###ALL JOBDESCRIPTION
+GET http://localhost:3000/DB/AllJobDescriptions
+
+###ALL PROBLEM
+GET http://localhost:3000/DB/AllProblems
+
+###ALL PROBLEMCALL
+GET http://localhost:3000/DB/AllProblemCalls
+
+###ALL CLIENTCONTRACT
+GET http://localhost:3000/DB/AllClientContracts
+
+###ALL SERVICECONTRACT
+GET http://localhost:3000/DB/AllServiceContracts
+
+###ALL SERVICE
+GET http://localhost:3000/DB/AllServices
+
+###SEND AN EMAIL
+GET http://localhost:3000/mail/SendMail
+
+###ADD RECORD
+POST http://localhost:3000/DB/InsertJD
+Content-Type: application/json
+
+{
+    "JobId": 2,
+    "Status": "Pending",
+    "Description": "This is a testing example of INSERT FROM HTTP"
+}
+
+###ADD RECORD
+GET http://localhost:3000/DB/SelectCUByCId/1
+
+
+
+### RUBEN FUNCTIONS
+### SHOW DETAILS FOR TICKET
+GET http://localhost:3000/DB/TechData/10
+
+### STATUS HISTORY
+GET http://localhost:3000/DB/JDByJob/2
+
+### STATUS HISTORY
+GET http://localhost:3000/DB/LoginEmp/in@outlook.org/FBD46RHN6PU
+
+### STATUS HISTORY
+GET http://localhost:3000/DB/LoginUser/tincidunt.orci@outlook.com/ZBR51ECN2CC
+
+###ADD RECORD
+POST http://localhost:3000/mail/SendMail
+Content-Type: application/json
+
+{
+    "email": "GavinLivingston1999@gmail.com",
+    "subject": "Pending",
+    "text": "This is a testing example of INSERT FROM HTTP"
+}
+###ADD RECORD
+PUT http://localhost:3000/DB/UpdateEmpPassword/2
+Content-Type: application/json
+
+{
+    "Password": "Testing"
+}
+
+###ADD RECORD
+GET http://localhost:3000/DB/CustomJobFilter/In Progress

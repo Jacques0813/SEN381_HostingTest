@@ -1,0 +1,28 @@
+{
+  "name": "serverclient_examplee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "concurrently": "^8.2.1",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cd server && npm run dev",
+    "server-i": "cd server && npm i && npm run dev",
+    "client": "cd client && npm run dev",
+    "client-i": "cd client && npm i && npm run dev",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start-i": "concurrently \"npm i\" \"npm run server-i\" \"npm run client-i\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.6"
+  }
+}
