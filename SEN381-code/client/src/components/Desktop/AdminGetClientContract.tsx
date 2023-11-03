@@ -12,10 +12,10 @@ interface Props {
 }
 
 function AdminGetClientContract({
-  problemId,
-  createdBy,
-  start,
-  end,
+  // problemId,
+  // createdBy,
+  // start,
+  // end,
   onCancel,
   onSave,
 }: Props) {
@@ -30,8 +30,8 @@ function AdminGetClientContract({
   const [suburb, setSuburb] = useState("");
   const [city, setCity] = useState("");
 
-  let operation = `${Base_Url}DB/InsertJob`;
-  let fetchMethod = "POST";
+  // let operation = `${Base_Url}DB/InsertJob`;
+  // let fetchMethod = "POST";
 
   useEffect(() => {
     SetTable(`${Base_Url}DB/AllClient`)

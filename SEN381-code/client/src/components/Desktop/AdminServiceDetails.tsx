@@ -21,7 +21,7 @@ function AdminServiceDetails({
   price,
   description,
   contractId,
-  contracts,
+  // contracts,
   onCancel,
   onSave,
   isUpdate,
