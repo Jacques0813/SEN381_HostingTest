@@ -11,14 +11,7 @@ interface Props {
   onSave: (clientId: number) => void;
 }
 
-function AdminGetClientContract({
-  // problemId,
-  // createdBy,
-  // start,
-  // end,
-  onCancel,
-  onSave,
-}: Props) {
+function AdminGetClientContract({ onCancel, onSave }: Props) {
   const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const [clientNames, setClientNames] = useState([]);
   const [selectedClient, setSelectedClient] = useState([]);
@@ -29,9 +22,6 @@ function AdminGetClientContract({
   const [street, setStreet] = useState("");
   const [suburb, setSuburb] = useState("");
   const [city, setCity] = useState("");
-
-  // let operation = `${Base_Url}DB/InsertJob`;
-  // let fetchMethod = "POST";
 
   useEffect(() => {
     SetTable(`${Base_Url}DB/AllClient`)
