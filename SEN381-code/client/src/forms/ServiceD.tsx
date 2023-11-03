@@ -9,7 +9,6 @@ import Alert from "../components/general/Alerts/Alert";
 import AdminAssignJob from "../components/Desktop/AdminAssignJob";
 import AdminNavbar from "../components/general/AdminNavbar";
 import Prompt from "../components/general/Alerts/Prompt";
-import GrayButton from "../components/general/GrayButton";
 import GreenButton from "../components/general/GreenButton";
 import AdminEditJob from "../components/Desktop/AdminEditJob";
 
@@ -18,7 +17,7 @@ interface Props {
 }
 
 function ServiceD({ id }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const isMobile = GetUserMode();
 
   // const [isClientM, setClientM] = useState(true);
@@ -27,7 +26,7 @@ function ServiceD({ id }: Props) {
 
   const [selectedRow, setSelectedRow] = useState({});
   const [rowId, setRowId] = useState(0);
-  const [subId, setSubId] = useState(0);
+  // const [subId, setSubId] = useState(0);
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
@@ -38,7 +37,7 @@ function ServiceD({ id }: Props) {
   const [reloadTable, setReloadTable] = useState(false);
 
   const [operation, setOperation] = useState("");
-  const [isInsert, setIsInsert] = useState(false);
+  // const [isInsert, setIsInsert] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
   const [isAssign, setIsAssign] = useState(false);
   const [isDelete, setIsDelete] = useState(false);
@@ -46,13 +45,13 @@ function ServiceD({ id }: Props) {
   const [deleteOperation, setDeleteOperation] = useState(
     `${Base_Url}DB/Delete${dataType}/`
   );
-  const [insertComplete, setInsertComplete] = useState(false);
-  const [updateComplete, setUpdateComplete] = useState(false);
+  // const [insertComplete, setInsertComplete] = useState(false);
+  // const [updateComplete, setUpdateComplete] = useState(false);
   const [deleteComplete, setDeleteComplete] = useState(false);
   const [assignComplete, setAssignComplete] = useState(false);
 
-  const [menuOptions, setMenuOptions] = useState([]);
-  const [menuOptionsClick, setMenuOptionsClick] = useState([() => {}]);
+  // const [menuOptions, setMenuOptions] = useState([]);
+  // const [menuOptionsClick, setMenuOptionsClick] = useState([() => {}]);
 
   async function assignTable(url: string) {
     await SetTable(url)
@@ -110,7 +109,7 @@ function ServiceD({ id }: Props) {
         setStart(Object.values(selectedRow)[6] as string);
         setEnd(Object.values(selectedRow)[7] as string);
       }
-      console.log("SUBID: " + subId);
+      // console.log("SUBID: " + subId);
       // console.log(("STATUS: " + Object.values(selectedRow)[2]) as string);
     }
   }, [rowId]);
@@ -258,8 +257,8 @@ function ServiceD({ id }: Props) {
           onClickFunction={(rowData) => {
             setSelectedRow(rowData);
           }}
-          menuOptions={menuOptions}
-          menuOptionsClick={menuOptionsClick}
+          menuOptions={[]}
+          menuOptionsClick={[]}
         />
 
         {isAssign ? (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface Ticket {
   id: number;
@@ -28,12 +28,7 @@ interface Props {
   onReply: (ticketId: number) => void; // Ensure 'onReply' is defined here
 }
 
-const SelectableTicket: React.FC<Props> = ({
-  ticket,
-  onSave,
-  onCancel,
-  onClick,
-}) => {
+const SelectableTicket: React.FC<Props> = ({ ticket, onClick }) => {
   const handleTicketClick = () => {
     onClick(ticket.id);
   };

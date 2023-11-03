@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import GrayButton from "../general/GrayButton";
-import BlueButton from "../general/BlueButton";
 import { DoOperation } from "../../functions/DBOperations";
 import Alert from "../general/Alerts/Alert";
 
@@ -12,7 +11,7 @@ interface Props {
 }
 
 function UpdatePassword({ previous, id, onCancel, onSave }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const OldRef = useRef(null);
   const NewRef = useRef(null);
   const RepeatRef = useRef(null);

@@ -1,8 +1,6 @@
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
 import GrayButton from "../general/Buttons/GrayButton";
-import BlueButton from "../general/Buttons/BlueButton";
 import { DoOperation } from "../../functions/DBOperations";
-import { userInfo } from "os";
 
 interface Props {
   clientId?: number; // Pass the ClientId for editing an existing record
@@ -39,7 +37,7 @@ function AdminJobDetails({
   onSave,
   isUpdate,
 }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const AccTypeRef = useRef(null);
   const ActiveRef = useRef(null);
   const TypeRef = useRef(null);

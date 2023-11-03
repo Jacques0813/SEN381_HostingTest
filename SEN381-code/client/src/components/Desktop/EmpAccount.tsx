@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GrayButton from "../general/Buttons/GrayButton";
-import BlueButton from "../general/Buttons/BlueButton";
 import { DoOperation, SetTable } from "../../functions/DBOperations";
 import UpdatePassword from "./UpdatePassword";
 import Alert from "../general/Alerts/Alert";
@@ -12,7 +11,7 @@ interface Props {
 }
 
 function EmpAccount({ id, onCancel, onSave }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   //   const [data, setData] = useState<Data | null>(null);
   const [data, setData] = useState([]);
   const [isPasswordChange, setIsPasswordChange] = useState(false);

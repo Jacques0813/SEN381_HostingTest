@@ -16,7 +16,7 @@ interface Props {
 }
 
 function ContractD({ id }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const isMobile = GetUserMode();
 
   const [selectedRow, setSelectedRow] = useState({});
@@ -73,8 +73,8 @@ function ContractD({ id }: Props) {
 
   async function DeleteOperation() {
     await DoOperation(`${deleteOperation}`, "DELETE", "");
-      //await assignTable(`${Base_Url}DB/${initialCommand}`);
-      await setReloadPage(!ReloadPage);
+    //await assignTable(`${Base_Url}DB/${initialCommand}`);
+    await setReloadPage(!ReloadPage);
   }
 
   useEffect(() => {
@@ -95,7 +95,7 @@ function ContractD({ id }: Props) {
       setInitialCommand(`ServiceByContract/${rowId}`);
       //setDeleteOperation(`${Base_Url}DB/Delete${dataType}`);
       setDeleteOperation(`${Base_Url}DB/DeleteSC/${rowId}/${subId}`);
-    } else if (dataType == "Service"){
+    } else if (dataType == "Service") {
       setInitialCommand(`All${dataType}`);
       //setDeleteOperation(`${Base_Url}DB/Delete${dataType}/`);
     }
@@ -105,17 +105,17 @@ function ContractD({ id }: Props) {
     if (rowId != 0) {
       console.log(rowId);
       if (dataType == "Contract") {
-          if (endDate !== undefined && endDate !== null) {
-            setEndDate(Object.values(selectedRow)[5] as string);
+        if (endDate !== undefined && endDate !== null) {
+          setEndDate(Object.values(selectedRow)[5] as string);
         } else {
-          console.log('endDate is not defined');
+          console.log("endDate is not defined");
         }
-          if (startDate !== undefined && startDate !== null) {
-            setStartDate(Object.values(selectedRow)[4] as string);
+        if (startDate !== undefined && startDate !== null) {
+          setStartDate(Object.values(selectedRow)[4] as string);
         } else {
-          console.log('startDate is not defined');
+          console.log("startDate is not defined");
         }
-      } 
+      }
       console.log("SUBID: " + subId);
       // console.log(("STATUS: " + Object.values(selectedRow)[2]) as string);
     }
@@ -213,7 +213,7 @@ function ContractD({ id }: Props) {
             height="3vh"
             width="5vw"
           />
-           
+
           {dataType != "ServiceContract" ? (
             <GrayButton
               buttonText="Edit"
@@ -227,15 +227,14 @@ function ContractD({ id }: Props) {
 
           {dataType != "Contract" ? (
             <RedButton
-            buttonText="Delete"
-            onClickFunction={() => {
-               setOperation("Delete");
-            }}
-            height="3vh"
-            width="5vw"
-          />
+              buttonText="Delete"
+              onClickFunction={() => {
+                setOperation("Delete");
+              }}
+              height="3vh"
+              width="5vw"
+            />
           ) : null}
-
         </div>
         <TableComponent
           key={dataType}

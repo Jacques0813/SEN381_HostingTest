@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-import GrayButton from "../general/Buttons/GrayButton";
+import { useRef } from "react";
 import BlueButton from "../general/Buttons/BlueButton";
 import { DoOperation } from "../../functions/DBOperations";
 
@@ -30,11 +29,10 @@ function ClientUserAccountDetails({
   accountHolder,
   bank,
   accountType,
-  onCancel,
   onSave,
   isUpdate,
 }: ClientUserAccountFormProps) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const NameRef = useRef(null);
   const SurnameRef = useRef(null);
   const UsernameRef = useRef(null);

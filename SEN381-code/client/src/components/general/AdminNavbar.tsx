@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import Headings from "./Headings";
 import ServiceDAccount from "../Desktop/EmpAccount";
@@ -11,25 +11,25 @@ interface Headings {
 
 function NewNav({ heads, functions, id }: Headings) {
   const [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState("Initial Message");
+  // const [message, setMessage] = useState("Initial Message");
   const [showAccountOverlay, setShowAccountOverlay] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleOptions = (val: string) => {
-    setMessage(val);
-    setIsOpen(false); // Close the menu when an option is selected
-  };
+  // const toggleOptions = (val: string) => {
+  //   setMessage(val);
+  //   setIsOpen(false); // Close the menu when an option is selected
+  // };
 
   const openAccountOverlay = () => {
     setShowAccountOverlay(true);
   };
 
-  const closeAccountOverlay = () => {
-    setShowAccountOverlay(false);
-  };
+  // const closeAccountOverlay = () => {
+  //   setShowAccountOverlay(false);
+  // };
 
   const dropdownStyle = {
     transform: `translateY(${isOpen ? 0 : "-124%"})`,

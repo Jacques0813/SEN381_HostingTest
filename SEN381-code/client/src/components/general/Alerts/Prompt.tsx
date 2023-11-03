@@ -10,7 +10,7 @@ interface props {
 
 function Prompt({ type, title, body, closed, shouldDelete }: props) {
   const [showAlert, setShowAlert] = useState(false);
-  const [endAnimation, setEndAnimation] = useState(false);
+  const [endAnimation] = useState(false);
   let bgcolor;
   let textcolor;
   let bordercolor;

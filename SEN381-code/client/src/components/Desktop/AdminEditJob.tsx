@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GrayButton from "../general/Buttons/GrayButton";
-import BlueButton from "../general/Buttons/BlueButton";
 import { DoOperation, SetTable } from "../../functions/DBOperations";
-import TableComponent from "../general/TableComponent";
 import LoadingIcon from "../general/LoadingIcon";
 
 interface Props {
@@ -29,7 +27,7 @@ function AdminEditJob({
   onCancel,
   onSave,
 }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
 
   const [techNames, setTechNames] = useState([]);
   const [techEmail, setTechEmail] = useState("");

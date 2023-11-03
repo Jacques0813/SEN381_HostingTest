@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Message from "../components/general/Message";
 import Navbar from "../components/general/Navbar";
 import TableComponent from "../components/general/TableComponent";
 import BlueButton from "../components/general/Buttons/BlueButton";
 import BackgroundImage from "../assets/BGPic.jpg";
 import { GetUserMode } from "../functions/UserMode";
-import { DoOperation, SetTable } from "../functions/DBOperations";
+import { SetTable } from "../functions/DBOperations";
 import ClientUserAccountDetails from "../components/Desktop/ClientUserAccoutDetails";
 
 function Client() {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
 
   interface SelectedRowType {
     Name: string;
@@ -32,12 +32,12 @@ function Client() {
   const [selectedRow, setSelectedRow] = useState<SelectedRowType | null>(null); // Initialize as null
   const [rowId, setRowId] = useState(0);
   const [userId, setUserId] = useState(1);
-  const [operation, setOperation] = useState("");
-  const [edited, setEdited] = useState(false);
-  const [initialCommand, setInitialCommand] = useState("");
-  const [deleteOperation, setDeleteOperation] = useState(
-    `${Base_Url}DB/Delete${dataType}/`
-  );
+  // const [operation, setOperation] = useState("");
+  // const [edited, setEdited] = useState(false);
+  // const [initialCommand, setInitialCommand] = useState("");
+  // const [deleteOperation, setDeleteOperation] = useState(
+  //   `${Base_Url}DB/Delete${dataType}/`
+  // );
 
   // Background image style
   const divStyle = {
@@ -163,14 +163,14 @@ function Client() {
   }, [rowId]);
 
   useEffect(() => {
-    if (dataType === "Service") {
-      setInitialCommand(`All${dataType}`);
-    } else if (dataType === "Contracts") {
-      setInitialCommand(`All${dataType}`);
-    } else if (dataType === "ClientUser") {
-      setInitialCommand(`UserById/${userId}`);
-      setDeleteOperation(`${Base_Url}DB/Delete${dataType}/`);
-    }
+    // if (dataType === "Service") {
+    //   setInitialCommand(`All${dataType}`);
+    // } else if (dataType === "Contracts") {
+    //   setInitialCommand(`All${dataType}`);
+    // } else if (dataType === "ClientUser") {
+    //   setInitialCommand(`UserById/${userId}`);
+    //   setDeleteOperation(`${Base_Url}DB/Delete${dataType}/`);
+    // }
   }, [dataType, userId]);
 
   function testingClick() {}
@@ -289,30 +289,38 @@ function Client() {
               <h1 className="text-2xl font-bold text-center text-black mb-8">
                 Service Solution Help Page
               </h1>
-              
             </div>
 
             <div className="flex items-center justify-center p-12 bg-white border-[1px] border-gray-500 m-4 rounded-lg">
-                <form>
-                  <div style={{
-                    display:"flex",
-                    flexDirection:"column",
-                    gap:"2dvh"
-                  }} className="items-center justify-center text-base font-medium text-[#07074D] text-center">
-                    <label htmlFor="message">Tell us what you need help with:</label>
-                    <textarea name="message" id="message" className="border-[1px] border-gray-500 w-[20dvw] h-[30dvh] mb-3 text-justify"></textarea>
-                  </div>
+              <form>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "2dvh",
+                  }}
+                  className="items-center justify-center text-base font-medium text-[#07074D] text-center"
+                >
+                  <label htmlFor="message">
+                    Tell us what you need help with:
+                  </label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    className="border-[1px] border-gray-500 w-[20dvw] h-[30dvh] mb-3 text-justify"
+                  ></textarea>
+                </div>
 
-                  <div className="flex items-center justify-center">
-                    <BlueButton 
-                      buttonText={"Send"} 
-                      onClickFunction={testingClick}
-                      width="8dvw"    
-                      height="5dvh"                
-                    />
-                  </div>
-                </form>
-              </div>
+                <div className="flex items-center justify-center">
+                  <BlueButton
+                    buttonText={"Send"}
+                    onClickFunction={testingClick}
+                    width="8dvw"
+                    height="5dvh"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
         )}
         {isAccount && (

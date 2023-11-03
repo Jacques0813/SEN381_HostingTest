@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import GrayButton from "../general/Buttons/GrayButton";
-import BlueButton from "../general/Buttons/BlueButton";
-import { DoOperation, SetTable } from "../../functions/DBOperations";
+import { SetTable } from "../../functions/DBOperations";
 
 interface Props {
   problemId?: number; // Pass the ClientId for editing an existing record
@@ -20,7 +19,7 @@ function AdminGetClientContract({
   onCancel,
   onSave,
 }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const [clientNames, setClientNames] = useState([]);
   const [selectedClient, setSelectedClient] = useState([]);
 

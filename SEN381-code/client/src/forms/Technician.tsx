@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SelectableTicket from "../components/general/SelectableTicket";
 import TicketForm from "../components/general/TicketForm";
 import { GetUserMode } from "../functions/UserMode";
@@ -7,8 +7,6 @@ import Navbar from "../components/general/Navbar";
 import BackgroundImage from "../assets/BGPic.jpg";
 import SearchOverlay from "../components/general/SearchOverlay";
 import { SetTable } from "../functions/DBOperations";
-import DataJson from "../testing/JSONdata.json";
-import TableComponent from "../components/general/TableComponent";
 
 function Technician() {
   const divStyle = {
@@ -31,16 +29,16 @@ function Technician() {
   const isMobile = GetUserMode();
 
   const [isHome, setIsHome] = useState(true);
-  const [isNew, setIsNew] = useState(false);
-  const [isSearch, setIsSearch] = useState(false);
+  // const [isNew, setIsNew] = useState(false);
+  // const [isSearch, setIsSearch] = useState(false);
   const [isContacts, setIsContacts] = useState(false);
   const [isAbout, setIsAbout] = useState(false);
   const [isTicketForm, setIsTicketForm] = useState(false);
 
   function toggleHome() {
     setIsHome(true);
-    setIsNew(false);
-    setIsSearch(false);
+    // setIsNew(false);
+    // setIsSearch(false);
     setIsContacts(false);
     setIsAbout(false);
     setIsTicketForm(false);
@@ -48,8 +46,8 @@ function Technician() {
 
   function toggleNew() {
     setIsHome(false);
-    setIsNew(true);
-    setIsSearch(false);
+    // setIsNew(true);
+    // setIsSearch(false);
     setIsContacts(false);
     setIsAbout(false);
     setIsTicketForm(false);
@@ -58,26 +56,26 @@ function Technician() {
   function toggleSearch() {
     setIsHome(false);
     openSearchOverlay();
-    setIsNew(false);
-    setIsSearch(true);
+    // setIsNew(false);
+    // setIsSearch(true);
     setIsContacts(false);
     setIsAbout(false);
     setIsTicketForm(false);
   }
 
-  function toggleContacts() {
-    setIsHome(false);
-    setIsNew(false);
-    setIsSearch(false);
-    setIsContacts(true);
-    setIsAbout(false);
-    setIsTicketForm(false);
-  }
+  // function toggleContacts() {
+  //   setIsHome(false);
+  //   // setIsNew(false);
+  //   // setIsSearch(false);
+  //   setIsContacts(true);
+  //   setIsAbout(false);
+  //   setIsTicketForm(false);
+  // }
 
   function toggleAbout() {
     setIsHome(false);
-    setIsNew(false);
-    setIsSearch(false);
+    // setIsNew(false);
+    // setIsSearch(false);
     setIsContacts(false);
     setIsAbout(true);
     setIsTicketForm(false);
@@ -105,7 +103,7 @@ function Technician() {
   //function TicketListComponent() {
   const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null);
   const [tickets, setTickets] = useState<Ticket[]>([]);
-  const base_URL = "http://localhost:3000/";
+  const base_URL = "https://sen-381-hosting-test.vercel.app/";
   useEffect(() => {
     const fetchData = async () => {
       // WITH DBOPERATIONS FUNCTION:
@@ -134,34 +132,34 @@ function Technician() {
           console.log(err);
         });
       try {
-        const dataFromDb1 = await SetTable(`${base_URL}DB/TechData/10`);
-        const dataFromDb2 = await fetch(`${base_URL}DB/JDByJob/2`).then(
-          (response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          }
-        );
-        const allData = [...dataFromDb1, ...dataFromDb2];
-        const transformedTickets = allData.map((job) => ({
-          id: job.JobId,
-          ticketName: job.Description,
-          requesterName: job.CreatedBy,
-          dateCreated: job.Start,
-          status: job.Status,
-          assignedTo: job.Employee,
-          issueStatus: job.contract.Status,
-          phoneNumber: job.info.Phone,
-          emailAddress: job.info.Email,
-          address: job.concatenatedAddress,
-          paymentDetails: {
-            BankAccount: job.clientinfo.BankAccount,
-            AccountHolder: job.clientinfo.AccountHolder,
-            Bank: job.clientinfo.Bank,
-            AccountType: job.clientinfo.AccountType,
-          },
-        }));
+        // const dataFromDb1 = await SetTable(`${base_URL}DB/TechData/10`);
+        // const dataFromDb2 = await fetch(`${base_URL}DB/JDByJob/2`).then(
+        //   (response) => {
+        //     if (!response.ok) {
+        //       throw new Error("Network response was not ok");
+        //     }
+        //     return response.json();
+        //   }
+        // );
+        // const allData = [...dataFromDb1, ...dataFromDb2];
+        // const transformedTickets = allData.map((job) => ({
+        //   id: job.JobId,
+        //   ticketName: job.Description,
+        //   requesterName: job.CreatedBy,
+        //   dateCreated: job.Start,
+        //   status: job.Status,
+        //   assignedTo: job.Employee,
+        //   issueStatus: job.contract.Status,
+        //   phoneNumber: job.info.Phone,
+        //   emailAddress: job.info.Email,
+        //   address: job.concatenatedAddress,
+        //   paymentDetails: {
+        //     BankAccount: job.clientinfo.BankAccount,
+        //     AccountHolder: job.clientinfo.AccountHolder,
+        //     Bank: job.clientinfo.Bank,
+        //     AccountType: job.clientinfo.AccountType,
+        //   },
+        // }));
       } catch (error) {
         console.error("Error fetching tickets:", error);
       }
@@ -188,12 +186,12 @@ function Technician() {
     setIsEditing(false);
   };
 
-  const handleReply = (ticketId: number) => {
-    const selected = tickets.find((ticket) => ticket.id === ticketId);
-    if (selected) {
-      setSelectedTicket(selected);
-    }
-  };
+  // const handleReply = (ticketId: number) => {
+  //   const selected = tickets.find((ticket) => ticket.id === ticketId);
+  //   if (selected) {
+  //     setSelectedTicket(selected);
+  //   }
+  // };
 
   if (isMobile) {
     return (
@@ -241,7 +239,7 @@ function Technician() {
                   onSave={handleSave}
                   onCancel={() => setSelectedTicket(null)}
                   onClick={() => handleEdit(ticket.id)}
-                  onReply={function (ticketId: number): void {
+                  onReply={function (): void {
                     throw new Error("Function not implemented.");
                   }}
                 />

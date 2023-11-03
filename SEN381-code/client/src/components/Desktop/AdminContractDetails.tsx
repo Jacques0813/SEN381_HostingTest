@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import GrayButton from "../general/Buttons/GrayButton";
 import BlueButton from "../general/Buttons/BlueButton";
 import { DoOperation } from "../../functions/DBOperations";
@@ -29,9 +29,8 @@ function AdminContractDetails({
   onCancel,
   onSave,
   isUpdate,
-  
 }: ContractFormProps) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
 
   const contractIdRef = useRef(null);
   const createdByRef = useRef(null);
@@ -214,14 +213,16 @@ function AdminContractDetails({
                         ?.value,
                       Priority: (priorityRef.current as HTMLInputElement | null)
                         ?.value,
-                      CreatedBy: (createdByRef.current as HTMLInputElement | null)
-                        ?.value,
-                      StartDate: (startDateRef.current as HTMLInputElement | null)
-                        ?.value,
+                      CreatedBy: (
+                        createdByRef.current as HTMLInputElement | null
+                      )?.value,
+                      StartDate: (
+                        startDateRef.current as HTMLInputElement | null
+                      )?.value,
                       EndDate: (endDateRef.current as HTMLInputElement | null)
-                        ?.value,  
+                        ?.value,
                       Price: (priceRef.current as HTMLInputElement | null)
-                        ?.value,  
+                        ?.value,
                     })
                   );
                   onSave();

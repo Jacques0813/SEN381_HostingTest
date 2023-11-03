@@ -10,7 +10,7 @@ import AdminJobDetails from "../components/Desktop/AdminJobDetails";
 import { DoOperation, SetTable } from "../functions/DBOperations";
 
 function Admin() {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const isMobile = GetUserMode();
 
   // const [isClientM, setClientM] = useState(true);

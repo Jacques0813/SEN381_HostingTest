@@ -6,10 +6,10 @@ interface Names {
 }
 
 function Headings({ heads, onClickFunctions }: Names) {
-  const [message, setMessage] = useState("Initial Message");
+  // const [message, setMessage] = useState("Initial Message");
 
-  function toggleOptions(val: string, index: number) {
-    setMessage(val);
+  function toggleOptions(index: number) {
+    // setMessage(val);
     onClickFunctions[index]();
   }
 
@@ -18,7 +18,7 @@ function Headings({ heads, onClickFunctions }: Names) {
       key={head}
       href="#"
       className={`mx-1.5 sm:mx-6 hover:border-blue-500 hover:border-b-2 `}
-      onClick={() => toggleOptions(head, index)}
+      onClick={() => toggleOptions(index)}
     >
       {head}
     </a>

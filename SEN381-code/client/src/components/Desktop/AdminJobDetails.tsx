@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
 import GrayButton from "../general/GrayButton";
 import BlueButton from "../general/BlueButton";
 import { DoOperation } from "../../functions/DBOperations";
@@ -14,12 +14,12 @@ interface JobDescriptionFormProps {
   onSave: () => void;
 }
 
-interface JobDescription {
-  DescriptionId: number;
-  JobId: number;
-  Status: string | null;
-  Description: string | null;
-}
+// interface JobDescription {
+//   DescriptionId: number;
+//   JobId: number;
+//   Status: string | null;
+//   Description: string | null;
+// }
 
 function AdminJobDetails({
   descriptionId,
@@ -31,7 +31,7 @@ function AdminJobDetails({
   statusOptions,
   isUpdate,
 }: JobDescriptionFormProps) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const jobIdRef = useRef(null);
   const StatusRef = useRef(null);
   const DescRef = useRef(null);

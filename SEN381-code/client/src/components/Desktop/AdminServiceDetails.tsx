@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
 import GrayButton from "../general/Buttons/GrayButton";
 import BlueButton from "../general/Buttons/BlueButton";
 import { DoOperation } from "../../functions/DBOperations";
@@ -26,7 +26,7 @@ function AdminServiceDetails({
   onSave,
   isUpdate,
 }: ServiceFormProps) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
 
   const serviceNameRef = useRef(null);
   const priceRef = useRef(null);
@@ -47,17 +47,13 @@ function AdminServiceDetails({
   const handleSave = () => {
     const serviceData = {
       serviceName: (serviceNameRef.current as HTMLInputElement | null)?.value,
-      price: (priceRef.current as HTMLInputElement | null)?.value,//parcetofloat
+      price: (priceRef.current as HTMLInputElement | null)?.value, //parcetofloat
       description: (descriptionRef.current as HTMLInputElement | null)?.value,
-      contractId: (contractIdRef.current as HTMLInputElement | null)?.value,//parcetofloat
+      contractId: (contractIdRef.current as HTMLInputElement | null)?.value, //parcetofloat
     };
 
     //serviceData object to send the data to your API.
-    DoOperation(
-      operation,
-      fetchMethod,
-      JSON.stringify(serviceData)
-    );
+    DoOperation(operation, fetchMethod, JSON.stringify(serviceData));
     onSave();
   };
 

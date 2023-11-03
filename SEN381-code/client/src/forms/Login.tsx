@@ -1,19 +1,16 @@
-import { useRef, useState } from "react";
-import { DoOperation, SetTable } from "../functions/DBOperations";
-import { GetUserMode } from "../functions/UserMode";
-import GrayButton from "../components/general/GrayButton";
-import BlueButton from "../components/general/BlueButton";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { SetTable } from "../functions/DBOperations";
+// import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context";
 
 function Login() {
   const [cred, setCred] = useState("");
   const [pass, setPass] = useState("");
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
 
   // Making use of a context to authenticate user
   const { login } = useAuth();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function handleLogin(id: number, type: string) {
     // alert(id + " " + type);
@@ -25,9 +22,9 @@ function Login() {
     // alert("FROM LOGIN: " + authenticated);
   }
 
-  const redirectToRegister = () => {
-    navigate("/register");
-  };
+  // const redirectToRegister = () => {
+  //   navigate("/register");
+  // };
 
   async function LoginAttempt() {
     const empData =

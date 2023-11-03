@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import GrayButton from "../general/Buttons/GrayButton";
-import BlueButton from "../general/Buttons/BlueButton";
 import { DoOperation, SetTable } from "../../functions/DBOperations";
 
 interface Props {
@@ -17,7 +16,7 @@ function AdminClientContract({
   onCancel,
   onSave,
 }: Props) {
-  const Base_Url = "http://localhost:3000/";
+  const Base_Url = "https://sen-381-hosting-test.vercel.app/";
   const [contractData, setContractData] = useState([]);
   const [selectedContract, setSelectedContract] = useState([]);
   const [contractId, setContractId] = useState(0);
